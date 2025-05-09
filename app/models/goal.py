@@ -12,7 +12,7 @@ class Goal(db.Model):
         goal_as_dict["title"] = self.title
 
         if self.tasks:
-            goal_as_dict["tasks"] = self.tasks
+            goal_as_dict["tasks"] = [task.to_dict() for task in self.tasks]
 
         return goal_as_dict
     
